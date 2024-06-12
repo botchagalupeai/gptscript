@@ -187,3 +187,11 @@ Use #GPTScript with #Python to build the front end of this AI-powered YouTube ge
 - [Tutorial on building an AI-powered YouTube title and thumbnail generator (Part 1)](https://buff.ly/4aGJYCD): Covers setting up the front end with Flask, modifying the script, and creating templates for the front page and result page.
 - [Tutorial on building an AI-powered YouTube title and thumbnail generator (Part 2)](https://buff.ly/49MSK1k): Covers the installation and setup of GPTScript, creating a basic script, handling command-line arguments, generating a YouTube title, and generating thumbnails using DALL-E 3.
 ```
+
+To demonstrate how to pass arguments to a tool via the CLI, consider the following example:
+
+```
+gptscript workflow-demo.gpt '{"url":"https://x.com/acornlabs/status/1798063732394000559"}'
+```
+
+In this example, we're running the `workflow-demo.gpt` script and passing a JSON object as an argument. The JSON object contains a key `url` with the value of the tweet URL we want to summarize. This is how you can dynamically pass arguments to your GPTScript tools via the CLI.

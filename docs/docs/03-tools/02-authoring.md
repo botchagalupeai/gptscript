@@ -77,7 +77,6 @@ GPTScript can execute any binary that you ask it to. However, it can also manage
 | `Node.js`  | [Vision](https://github.com/gptscript-ai/gpt4-v-vision) - Analyze and interpret images                         |
 | `Golang`   | [Search](https://github.com/gptscript-ai/search) - Use various providers to search the internet                |
 
-
 ### Automatic Documentation
 
 Each GPTScript tool is self-documented using the `tool.gpt` file. You can automatically generate documentation for your tools by visiting `tools.gptscript.ai/<github repo url>`. This documentation site allows others to easily search and explore the tools that have been created. 
@@ -85,3 +84,63 @@ Each GPTScript tool is self-documented using the `tool.gpt` file. You can automa
 You can add more information about how to use your tool by adding an `examples` directory to your repository and adding a collection of `.gpt` files that demonstrate how to use your tool. These examples will be automatically included in the documentation.
 
 For more information and to explore existing tools, visit [tools.gptscript.ai](https://tools.gptscript.ai).
+
+## Passing Arguments via CLI
+
+When running a tool directly with the CLI, you can pass arguments to the tool using JSON-formatted input. This allows you to specify key-value pairs that the tool can use to perform its tasks. Here's how you can do it:
+
+### Basic Usage
+
+To pass a single argument to a tool, you can use the following syntax:
+
+```
+gptscript tool.gpt '{"argName":"argValue"}'
+```
+
+For example, if you have a tool that requires a `url` argument, you can run it like this:
+
+```
+gptscript tool.gpt '{"url":"https://example.com"}'
+```
+
+### Passing Multiple Arguments
+
+You can also pass multiple arguments to a tool by including them in the JSON object:
+
+```
+gptscript tool.gpt '{"arg1":"value1", "arg2":"value2"}'
+```
+
+### Nested JSON Objects
+
+For more complex scenarios, you can pass nested JSON objects as arguments:
+
+```
+gptscript tool.gpt '{"config":{"option1":"value1", "option2":"value2"}}'
+```
+
+This is particularly useful for tools that require configuration objects or when you need to pass a list of values.
+
+### Examples
+
+Here are some examples of passing arguments via CLI:
+
+- Passing a simple key-value pair:
+
+```
+gptscript echo.gpt '{"message":"Hello, World!"}'
+```
+
+- Passing multiple arguments:
+
+```
+gptscript process-data.gpt '{"inputFile":"data.csv", "outputFile":"result.json"}'
+```
+
+- Passing a nested JSON object:
+
+```
+gptscript configure-system.gpt '{"settings":{"theme":"dark", "notifications":false}}'
+```
+
+By using JSON-formatted input, you can easily pass any type of argument to your tools, making them more flexible and powerful.
